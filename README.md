@@ -1,8 +1,40 @@
-# Histogram-Equalization-Of-Image
-#
-Implemented the classic algorithm for global histogram equalization and also the algorithm for adaptive histogram equalization. 
-One note for the ahe algorithm is that I have not (yet) implemented the border cases so some discontinuities are obvious between inner contextual regions and border contextual regions are obvious.
-I have also provided the test images I used to check the validity of the algorithms. In the demo.py file I use the input_img.png image , but you can change it. Be carefull of the dimensions of the images and the contextual regions. The ahe algorithm assumes that the dimensions of the contextual regions divide perfectly the dimensions of the original image. If thats not the case , an Assertion Exception will be raised prompting to change the dimensions.
+## 🌈 Project Overview
 
+This project implements two fundamental **image enhancement algorithms** based on histogram equalization:
 
-The algorithms are writen in Python using numpy but I have writen from scratch 2 functions , image_histogram to count the frequency of the values of the pixels and cumsum. 
+1. **Global Histogram Equalization (HE)**  
+   - Adjusts the contrast of the entire image based on its global histogram.  
+
+2. **Adaptive Histogram Equalization (AHE)**  
+   - Enhances contrast locally by applying histogram equalization to contextual regions of the image.  
+
+---
+
+## ⚙️ Implementation Notes
+
+- The **AHE algorithm** does not yet handle border cases, which may lead to visible discontinuities between inner contextual regions and border contextual regions.  
+- The algorithm assumes that the image dimensions are **perfectly divisible by the contextual region size**.  
+  - If this condition is not met, an **AssertionError** will be raised.  
+
+---
+
+## 📂 Usage
+
+- A demo script (`demo.py`) is provided.  
+- By default, it uses the `input_img.png` file. You can replace this with your own images.  
+- **Important:** Ensure that the chosen contextual region size divides the image dimensions evenly.  
+
+---
+
+## 🛠️ Implementation Details
+
+- Written in **Python** using **NumPy**.  
+- Includes two helper functions written from scratch:  
+  - `image_histogram` → counts the frequency of pixel values.  
+  - `cumsum` → computes the cumulative sum needed for histogram equalization.  
+
+---
+
+## 🖼️ Test Images
+
+A set of **test images** is included to validate and demonstrate the algorithms.  
